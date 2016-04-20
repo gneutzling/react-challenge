@@ -3,3 +3,59 @@
  */
 
 .entry-post
+  width: 262px
+
+  h1
+    margin: 15px 0 10px
+    font-size: $font-size-medium
+    line-height: 1.2
+    color: $color-title
+
+.entry-post__image
+  img
+    display: block
+
+.entry-post__author
+  margin-top: 10px
+  margin-bottom: 20px
+  font-size: 0
+
+  > div
+    display: inline-block
+    vertical-align: middle
+    overflow: hidden
+    width: 45px
+    height: 45px
+    margin-right: 10px
+    border-radius: 100%
+
+  span
+    display: inline-block
+    vertical-align: middle
+    font-family: $font-text
+    font-size: $font-size-small
+    font-style: italic
+    color: $color-gray
+
+
+/**
+ * Modifiers.
+ */
+
+.entry-post--featured
+  width: 555px
+
+  h1
+    font-size: $font-size-h1
+
+
+.entry-post--secundary
+  h1
+    margin-top: 0
+
+  .entry-post__author
+    margin-top: 20px
+
+    > div
+      width: 32px
+      height: 32px
