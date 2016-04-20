@@ -1,0 +1,25 @@
+/**
+ * library/settings/extensions/bootstrap.sass
+ */
+
+$screen-xs:                  480px                        !default
+$screen-xs-min:              $screen-xs                   !default
+$screen-sm:                  $sm-min                      !default
+$screen-sm-min:              $screen-sm                   !default
+$screen-md:                  $md-min                      !default
+$screen-md-min:              $screen-md                   !default
+$screen-lg:                  $lg-min                      !default
+$screen-lg-min:              $screen-lg                   !default
+
+$screen-xs-max:              ($screen-sm-min - 1)         !default
+$screen-sm-max:              ($screen-md-min - 1)         !default
+$screen-md-max:              ($screen-lg-min - 1)         !default
+
+$grid-columns:               24                           !default
+$grid-gutter-width:          30px                         !default
+$grid-float-breakpoint:      $screen-sm-min               !default
+$grid-float-breakpoint-max:  ($grid-float-breakpoint - 1) !default
+
+@import ../../../../lib/bootstrap-sass/assets/stylesheets/bootstrap/mixins/clearfix
+@import ../../../../lib/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid-framework
+@import ../../../../lib/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid

@@ -16,6 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "reset-css": "^2.0.2011012603"
+    "reset-css": "^2.0.2011012603",
+    "compass-breakpoint": "~2.6.1",
+    "bootstrap-sass": "~3.3.5"
   }
 }
