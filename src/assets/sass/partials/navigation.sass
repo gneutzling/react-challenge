@@ -1,0 +1,25 @@
+/**
+ * partials/navigation.sass
+ */
+
+.main-navigation
+  padding-top: 20px
+  text-align: right
+
+  ul
+    font-size: 0
+
+  li
+    display: inline-block
+    margin-left: 15px
+    margin-right: 14px
+
+  a
+    @extend %transition-simple
+    font-size: $font-size
+    text-decoration: none
+    text-transform: uppercase
+    color: $color-menu
+
+    &:hover
+      color: black
