@@ -21,11 +21,13 @@ class News extends React.Component {
   render() {
     return (
       <div>
-        {this.state.data.map((news, index) => {
-          return (
-            <Entry data={news} key={index} />
-          );
-        })}
+        <div className="container">
+          {this.state.data.map((news, index) => {
+            return (
+              <Entry data={news} key={index} />
+            );
+          })}
+        </div>
       </div>
     );
   }
