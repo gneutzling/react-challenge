@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 class Entry extends React.Component {
   constructor(props) {
@@ -6,15 +7,25 @@ class Entry extends React.Component {
   }
 
   render() {
+    let imagePath = 'assets/img/';
+    let entryType = this.props.data.featured ? 'entry-post--featured' : '';
+    let entryClasses = classNames('entry-post', entryType);
+
     return (
-      <article className="entry-post entry-post--featured">
+      <article className={entryClasses}>
         <ul className="tag-list">
-          <li>{this.props.data.date}</li>
+          {this.props.data.tags.map((tag) => {
+            return (
+              <li className={"tag-list__" + tag.id} key={tag.id}>{tag.label}</li>
+            );
+          })}
         </ul>
         <div className="entry-post__content">
-          <div className="entry-post__image">
-            <img src={this.props.data.image} />
-          </div>
+          {this.props.data.image &&
+            <div className="entry-post__image">
+              <img src={'' + imagePath + this.props.data.image + '.jpg'} />
+            </div>
+          }
           <h1>{this.props.data.title}</h1>
         </div>
         <aside className="entry-post__author">
