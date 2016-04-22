@@ -3,7 +3,6 @@
  */
 
 .main-navigation
-  position: relative
   padding-top: 20px
 
   +breakpoint($breakpoint-min-md)
@@ -17,7 +16,9 @@
       visibility: hidden
       position: absolute
       top: 56px
+      left: 0
       width: 100%
+      padding: 0 15px
       background: white
       opacity: 0
 
@@ -52,6 +53,7 @@
     width: 24px
     height: 19px
     border: none
+    cursor: pointer
     background: white
 
     +breakpoint($breakpoint-max-sm)
