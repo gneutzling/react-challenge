@@ -1,10 +1,16 @@
 import React, { Component, PropTypes } from 'react';
-import Entry from './Entry';
+import NewsHighlight from './NewsHighlight'
+import NewsSecondary from './NewsSecondary'
 
 class News extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = {
+      data: {
+        highlight: [],
+        secondary: []
+      }
+    };
   }
 
   componentWillMount() {
@@ -22,11 +28,8 @@ class News extends React.Component {
     return (
       <div>
         <div className="container">
-          {this.state.data.map((news, index) => {
-            return (
-              <Entry data={news} key={index} />
-            );
-          })}
+          <NewsHighlight data={this.state.data.highlight} />
+          <NewsSecondary data={this.state.data.secondary} />
         </div>
       </div>
     );
