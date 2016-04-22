@@ -20,7 +20,7 @@ class Entry extends React.Component {
             );
           })}
         </ul>
-        <div className="entry-post__content">
+        <div className="entry-post__teaser">
           {this.props.data.image &&
             <div className="entry-post__image">
               <img src={'' + imagePath + this.props.data.image + '.jpg'} />
@@ -34,6 +34,7 @@ class Entry extends React.Component {
           </div>
           <span>{this.props.data.authors}</span>
         </aside>
+        <p className="entry-post__content">{this.props.data.content}</p>
       </article>
     );
   }
