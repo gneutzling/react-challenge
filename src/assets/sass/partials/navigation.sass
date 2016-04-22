@@ -3,16 +3,36 @@
  */
 
 .main-navigation
+  position: relative
   padding-top: 20px
-  text-align: right
+
+  +breakpoint($breakpoint-min-md)
+    text-align: right
 
   ul
     font-size: 0
 
+    +breakpoint($breakpoint-max-sm)
+      @extend %transition-simple
+      visibility: hidden
+      position: absolute
+      top: 56px
+      width: 100%
+      background: white
+      opacity: 0
+
+    &.is-active
+      visibility: visible
+      opacity: 1
+
   li
-    display: inline-block
-    margin-left: 15px
-    margin-right: 14px
+    +breakpoint($breakpoint-min-md)
+      display: inline-block
+      margin-left: 15px
+      margin-right: 14px
+
+    +breakpoint($breakpoint-max-sm)
+      margin: 10px 0
 
   a
     @extend %transition-simple
@@ -24,3 +44,22 @@
 
     &:hover
       color: black
+
+  > button
+    display: none
+    margin: 0
+    padding: 0
+    width: 24px
+    height: 19px
+    border: none
+    background: white
+
+    +breakpoint($breakpoint-max-sm)
+      display: block
+
+    &::before
+      content: ""
+      display: block
+      height: 3px
+      background: black
+      box-shadow: 0 -8px 0 0 black, 0 8px 0 0 black

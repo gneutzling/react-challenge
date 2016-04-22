@@ -3,10 +3,18 @@
  */
 
 .header
+  position: relative
   height: 56px
   margin-bottom: 76px
   border-bottom: 1px solid #979797
 
   .logo
-    float: left
     margin-top: 7px
+
+    +breakpoint($breakpoint-max-sm)
+      position: absolute
+      width: 100%
+      text-align: center
+
+    +breakpoint($breakpoint-min-md)
+      float: left
