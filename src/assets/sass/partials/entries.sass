@@ -1,0 +1,41 @@
+/**
+ * partials/entries.sass
+ */
+
+.highlight-entries
+  @extend %row
+  display: flex
+  flex-wrap: wrap
+
+  &::after
+    +breakpoint($breakpoint-min-md)
+      content: ""
+      width: calc(100% - 30px) // 30px is the grid gutter width.
+      height: 1px
+      margin: 6px 0 30px 15px
+      background: #E3E3E3
+
+  .entry-post
+    @extend %col-md-6
+    @extend %col-sm-12
+    @extend %col-xs-24
+
+  .entry-post--featured
+    @extend %col-md-12
+    @extend %col-sm-24
+    @extend %col-xs-24
+
+    .entry-post__content
+      +breakpoint($breakpoint-min-md)
+        display: none
+
+
+.secondary-entries
+  @extend %row
+  display: flex
+  flex-wrap: wrap
+
+  .entry-post
+    @extend %col-md-8
+    @extend %col-sm-12
+    @extend %col-xs-24

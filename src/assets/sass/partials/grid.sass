@@ -1,0 +1,53 @@
+/**
+ * partials/grid.sass
+ */
+
+.container
+  @extend %container
+
+.container-fluid
+  @extend %container-fluid
+
+.row
+  @extend %row
+
+@each $name, $media in $breakpoint-map
+
+  // 1. Extend default column attributes.
+  @for $i from (1) through $grid-columns
+    .col-#{$name}-#{$i}
+      @extend %col-#{$name}-#{$i}
+
+  // 2. Build breakpointed grids.
+  @include breakpoint($media)
+    .col-#{$name}
+      @extend %col-#{$name}
+
+    @for $i from (0) through $grid-columns
+      @if ($i > 0)
+        .col-#{$name}-#{$i}
+          @extend %col-#{$name}-#{$i}
+
+      // 2.1. Add pushs and pulls.
+      @each $type, $attr in ('push': 'left', 'pull': 'right')
+        .col-#{$name}-#{$type}-#{$i}
+          @extend %col-#{$name}-#{$type}-#{$i}
+
+      // 2.2. Add offsets.
+      %col-#{$name}-offset-#{$i}
+        @extend %col-#{$name}-offset-#{$i}
+
+    // 2.3. Bleeding options.
+    .col-#{$name}-bleed-left
+      @extend %col-#{$name}-bleed-left
+
+    .col-#{$name}-bleed-right
+      @extend %col-#{$name}-bleed-right
+
+    // 2.4. Add new line option.
+    .col-#{$name}-clear-left
+      @extend %col-#{$name}-clear-left
+
+    // 2.5. Add hidden options.
+    .hidden-#{$name}
+      @extend %hidden-#{$name}
