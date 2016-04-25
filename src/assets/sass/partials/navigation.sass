@@ -9,10 +9,10 @@
     text-align: right
 
   ul
+    @extend %transition-simple
     font-size: 0
 
     +breakpoint($breakpoint-max-sm)
-      @extend %transition-simple
       visibility: hidden
       position: absolute
       z-index: 1
