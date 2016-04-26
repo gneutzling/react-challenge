@@ -13,7 +13,7 @@
     "gulp-bower": "0.0.10",
     "gulp-concat": "^2.6.0",
     "gulp-sass": "^2.0.4",
-    "gulp-sequence": "^0.4.1",
+    "gulp-sequence": "^0.4.5",
     "reactify": "^1.1.1",
     "require-dir": "^0.3.0",
     "vinyl-source-stream": "^1.1.0",
