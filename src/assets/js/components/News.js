@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import NewsHighlight from './NewsHighlight'
 import NewsSecondary from './NewsSecondary'
+import Loader from 'react-loader'
 
 class News extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class News extends React.Component {
       data: {
         highlight: [],
         secondary: []
-      }
+      },
+      loaded: false
     };
   }
 
@@ -19,7 +21,13 @@ class News extends React.Component {
       type: 'GET',
       contentType: 'json',
       success: (result) => {
-        this.setState({ data: result });
+        // Simulate HTTP request delay.
+        setTimeout(() => {
+          this.setState({
+            data: result,
+            loaded: true
+          });
+        }, 2000);
       }
     });
   }
@@ -28,8 +36,10 @@ class News extends React.Component {
     return (
       <div>
         <div className="container">
-          <NewsHighlight data={this.state.data.highlight} />
-          <NewsSecondary data={this.state.data.secondary} />
+          <Loader loaded={this.state.loaded}>
+            <NewsHighlight data={this.state.data.highlight} />
+            <NewsSecondary data={this.state.data.secondary} />
+          </Loader>
         </div>
       </div>
     );

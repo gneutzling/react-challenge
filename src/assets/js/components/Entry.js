@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import Media from './Media';
 
 class Entry extends React.Component {
   constructor(props) {
@@ -7,9 +8,18 @@ class Entry extends React.Component {
   }
 
   render() {
-    let imagePath = 'assets/img/';
     let entryType = this.props.data.featured ? 'entry-post--featured' : '';
     let entryClasses = classNames('entry-post', entryType);
+    let entryImages = {
+      teaser: {
+        normal: this.props.data.image + '.jpg',
+        retina: this.props.data.image + '@2x.jpg'
+      },
+      author: {
+        normal: 'author.jpg',
+        retina: 'author@2x.jpg'
+      }
+    };
 
     return (
       <article className={entryClasses}>
@@ -23,14 +33,14 @@ class Entry extends React.Component {
         <div className="entry-post__teaser">
           {this.props.data.image &&
             <div className="entry-post__image">
-              <img src={'' + imagePath + this.props.data.image + '.jpg'} />
+              <Media source={entryImages.teaser} />
             </div>
           }
           <h1>{this.props.data.title}</h1>
         </div>
         <aside className="entry-post__author">
           <div>
-            <img src="assets/img/author.jpg" />
+            <Media source={entryImages.author} />
           </div>
           <span>{this.props.data.authors}</span>
         </aside>
