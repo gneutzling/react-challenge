@@ -19,7 +19,10 @@ class News extends React.Component {
       type: 'GET',
       contentType: 'json',
       success: (result) => {
-        this.setState({ data: result });
+        // Simulate HTTP request delay.
+        setTimeout(() => {
+          this.setState({ data: result });
+        }, 2000);
       }
     });
   }
