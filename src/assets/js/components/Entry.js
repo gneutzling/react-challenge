@@ -42,7 +42,9 @@ class Entry extends React.Component {
           <div>
             <Media source={entryImages.author} />
           </div>
-          <span>{this.props.data.authors}</span>
+          <span>
+            by {this.props.data.authors}
+          </span>
         </aside>
         <p className="entry-post__content">{this.props.data.content}</p>
       </article>
