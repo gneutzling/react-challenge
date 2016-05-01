@@ -3,40 +3,85 @@
  */
 
 .entry-post
-  width: 262px
+  +breakpoint($breakpoint-max-sm)
+    margin-bottom: 67px
 
   h1
-    margin: 15px 0 10px
+    margin: 16px 0 0
     font-size: $font-size-medium
-    line-height: 1.2
+    line-height: 22px
     color: $color-title
 
-.entry-post__image
+.entry-post__content
+  line-height: 23px
+
   img
     display: block
 
 .entry-post__author
-  margin-top: 10px
-  margin-bottom: 20px
+  margin-top: 13px
+  margin-bottom: 22px
   font-size: 0
+
+  +breakpoint($breakpoint-sm)
+    margin-top: 35px
+
 
   > div
     display: inline-block
     vertical-align: middle
     overflow: hidden
-    width: 45px
-    height: 45px
+    width: 32px
+    height: 32px
     margin-right: 10px
     border-radius: 100%
 
-  span
+  > span
     display: inline-block
     vertical-align: middle
+    width: calc(100% - 42px)
     font-family: $font-text
     font-size: $font-size-small
     font-style: italic
+    line-height: 16px
     color: $color-gray
 
+.entry-post__image
+  position: relative
+
+  &:hover
+    .entry-post__read-more
+      opacity: 1
+
+.entry-post__read-more
+  @extend %transition-simple
+  display: flex
+  align-items: center
+  justify-content: center
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  width: 100%
+  background: rgba(0, 0, 0, 0.5)
+  opacity: 0
+
+  +breakpoint($breakpoint-max-sm)
+    display: none
+
+  a
+    @extend %transition-simple
+    min-width: 110px
+    padding: 8px 20px
+    font-size: 14px
+    line-height: 17px
+    text-align: center
+    text-decoration: none
+    color: white
+    border: 1px solid
+
+    &:hover
+      background: rgba(0, 0, 0, 0.5)
 
 /**
  * Modifiers.
@@ -45,17 +90,51 @@
 .entry-post--featured
   width: 555px
 
-  h1
-    font-size: $font-size-h1
+  +breakpoint($breakpoint-sm)
+    margin-bottom: 47px
 
-
-.entry-post--secondary
   h1
-    margin-top: 0
+    margin-top: 15px
+
+    +breakpoint($breakpoint-min-sm)
+      font-size: $font-size-h1
+      line-height: 35px
+
+  .entry-post__image
+    +breakpoint($breakpoint-sm)
+      padding-bottom: 5px
 
   .entry-post__author
-    margin-top: 20px
+    margin-top: 8px
+
+    +breakpoint($breakpoint-max-sm)
+      margin-top: 18px
+
+    +breakpoint($breakpoint-max-xs)
+      margin-top: 13px
 
     > div
-      width: 32px
-      height: 32px
+      +breakpoint($breakpoint-min-sm)
+        width: 45px
+        height: 45px
+
+    span
+      width: calc(100% - 55px)
+
+  .entry-post__read-more a
+    min-width: 150px
+    padding: 10px 29px
+    font-size: 18px
+    line-height: 22px
+
+  +breakpoint($breakpoint-min-sm)
+    .entry-post__content
+      display: none
+
+.secondary-entries
+  .entry-post
+    h1
+      margin-top: 0
+
+    .entry-post__author
+      margin-top: 20px
