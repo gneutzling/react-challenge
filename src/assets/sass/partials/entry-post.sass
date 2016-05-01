@@ -5,6 +5,9 @@
 .entry-post
   width: 262px
 
+  +breakpoint($breakpoint-max-sm)
+    margin-bottom: 67px
+
   h1
     margin: 16px 0 0
     font-size: $font-size-medium
@@ -14,7 +17,6 @@
 .entry-post__content
   line-height: 23px
 
-.entry-post__image
   img
     display: block
 
@@ -22,6 +24,10 @@
   margin-top: 13px
   margin-bottom: 22px
   font-size: 0
+
+  +breakpoint($breakpoint-sm)
+    margin-top: 35px
+
 
   > div
     display: inline-block
@@ -50,21 +56,40 @@
 .entry-post--featured
   width: 555px
 
+  +breakpoint($breakpoint-sm)
+    margin-bottom: 47px
+
   h1
     margin-top: 15px
-    font-size: $font-size-h1
-    line-height: 35px
+
+    +breakpoint($breakpoint-min-sm)
+      font-size: $font-size-h1
+      line-height: 35px
+
+  .entry-post__image
+    +breakpoint($breakpoint-sm)
+      padding-bottom: 5px
 
   .entry-post__author
     margin-top: 8px
 
+    +breakpoint($breakpoint-max-sm)
+      margin-top: 18px
+
+    +breakpoint($breakpoint-max-xs)
+      margin-top: 13px
+
     > div
-      width: 45px
-      height: 45px
+      +breakpoint($breakpoint-min-sm)
+        width: 45px
+        height: 45px
 
     span
       width: calc(100% - 55px)
 
+  +breakpoint($breakpoint-min-sm)
+    .entry-post__content
+      display: none
 
 .secondary-entries
   .entry-post

@@ -7,6 +7,9 @@
   margin-bottom: 84px
   border-bottom: 1px solid #979797
 
+  +breakpoint($breakpoint-max-sm)
+    margin-bottom: 63px
+
   .logo
     width: 45px
     height: 45px
@@ -16,7 +19,11 @@
     +breakpoint($breakpoint-max-sm)
       position: absolute
       width: 100%
+      margin-top: 4px
       text-align: center
 
     +breakpoint($breakpoint-min-md)
       float: left
+
+    img
+      margin: 0 auto
