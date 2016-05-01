@@ -34,6 +34,9 @@ class Entry extends React.Component {
           {this.props.data.image &&
             <div className="entry-post__image">
               <Media source={entryImages.teaser} />
+              <div className="entry-post__read-more">
+                <a href="#">Read More</a>
+              </div>
             </div>
           }
           <h1>{this.props.data.title}</h1>

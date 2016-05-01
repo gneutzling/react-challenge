@@ -46,6 +46,42 @@
     line-height: 16px
     color: $color-gray
 
+.entry-post__image
+  position: relative
+
+  &:hover
+    .entry-post__read-more
+      opacity: 1
+
+.entry-post__read-more
+  @extend %transition-simple
+  display: flex
+  align-items: center
+  justify-content: center
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  width: 100%
+  background: rgba(0, 0, 0, 0.5)
+  opacity: 0
+
+  +breakpoint($breakpoint-max-sm)
+    display: none
+
+  a
+    @extend %transition-simple
+    min-width: 110px
+    padding: 8px 20px
+    font-size: 14px
+    line-height: 17px
+    text-align: center
+    text-decoration: none
+    color: white
+    border: 1px solid
+
+    &:hover
+      background: rgba(0, 0, 0, 0.5)
 
 /**
  * Modifiers.
@@ -84,6 +120,12 @@
 
     span
       width: calc(100% - 55px)
+
+  .entry-post__read-more a
+    min-width: 150px
+    padding: 10px 29px
+    font-size: 18px
+    line-height: 22px
 
   +breakpoint($breakpoint-min-sm)
     .entry-post__content
